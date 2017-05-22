@@ -1,5 +1,4 @@
 package com.project.mobileapp.devtools;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,9 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
 public class ArticleDescription extends AppCompatActivity {
-
     SharedPreferences preferences;
     TextView description,nodf;
     @Override
