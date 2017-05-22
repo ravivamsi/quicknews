@@ -1,4 +1,4 @@
-package com.example.abdulsamad.quickboxnewaplication;
+package com.project.mobileapp.devtools;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;

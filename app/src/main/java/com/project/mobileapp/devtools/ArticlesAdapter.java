@@ -1,4 +1,4 @@
-package com.example.abdulsamad.quickboxnewaplication;
+package com.project.mobileapp.devtools;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

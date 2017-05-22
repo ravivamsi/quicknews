@@ -1,4 +1,4 @@
-package com.example.abdulsamad.quickboxnewaplication;
+package com.project.mobileapp.devtools;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,19 +13,16 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.example.abdulsamad.quickboxnewaplication.Helper.Dialogs;
+import com.project.mobileapp.devtools.Helper.Dialogs;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 public class Home extends AppCompatActivity {
     Spinner countries,sources;

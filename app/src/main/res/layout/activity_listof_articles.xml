@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.abdulsamad.quickboxnewaplication.ListofArticles">
+    android:background="@android:color/white"
+    tools:context="com.project.mobileapp.devtools.ListofArticles">
     <ImageView
         android:layout_width="70dp"
         android:layout_marginTop="10dp"
@@ -77,14 +78,6 @@
         android:layout_marginLeft="11dp"
         android:layout_marginRight="11dp"
         >
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/downarrow"
-            android:id="@+id/arow"
-            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -93,7 +86,7 @@
             android:textSize="20dp"
             android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/arow"
+            android:layout_centerInParent="true"
             />
         <View
             android:layout_width="match_parent"
@@ -111,7 +104,6 @@
         android:layout_marginLeft="10dp"
         android:background="@color/black"
         ></View>
-
     <View
         android:layout_width="1dp"
         android:layout_height="match_parent"

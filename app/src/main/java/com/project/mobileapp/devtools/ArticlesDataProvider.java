@@ -1,4 +1,4 @@
-package com.example.abdulsamad.quickboxnewaplication;
+package com.project.mobileapp.devtools;
 
 /**
  * Created by ABDUL Samad on 5/19/2017.

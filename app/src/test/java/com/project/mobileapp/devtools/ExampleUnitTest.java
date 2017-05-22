@@ -1,4 +1,4 @@
-package com.example.abdulsamad.quickboxnewaplication;
+package com.project.mobileapp.devtools;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

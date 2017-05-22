@@ -1,4 +1,4 @@
-package com.example.abdulsamad.quickboxnewaplication;
+package com.project.mobileapp.devtools;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,7 +18,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.abdulsamad.quickboxnewaplication.Helper.Dialogs;
+import com.project.mobileapp.devtools.Helper.Dialogs;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

@@ -1,7 +1,6 @@
-package com.example.abdulsamad.quickboxnewaplication.Helper;
+package com.project.mobileapp.devtools.Helper;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
