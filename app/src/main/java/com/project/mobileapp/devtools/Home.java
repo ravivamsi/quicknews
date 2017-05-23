@@ -1,4 +1,5 @@
 package com.project.mobileapp.devtools;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,8 +23,18 @@ import com.project.mobileapp.devtools.Helper.Dialogs;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+
 public class Home extends AppCompatActivity {
     Spinner countries,sources;
     Dialogs myDialogs;
@@ -35,12 +46,45 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        handleSSLHandshake();
         preferences=getSharedPreferences("user", Context.MODE_PRIVATE);
         myDialogs=new Dialogs(this);
         countries=(Spinner)findViewById(R.id.countries);
         sources=(Spinner)findViewById(R.id.sources);
         loadCountries();
         getSoucrse();
+    }
+    /**
+     * Enables https connections
+     */
+    @SuppressLint("TrulyRandom")
+    public static void handleSSLHandshake() {
+        try {
+            TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
+                public X509Certificate[] getAcceptedIssuers() {
+                    return new X509Certificate[0];
+                }
+
+                @Override
+                public void checkClientTrusted(X509Certificate[] certs, String authType) {
+                }
+
+                @Override
+                public void checkServerTrusted(X509Certificate[] certs, String authType) {
+                }
+            }};
+
+            SSLContext sc = SSLContext.getInstance("SSL");
+            sc.init(null, trustAllCerts, new SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+            HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
+                @Override
+                public boolean verify(String arg0, SSLSession arg1) {
+                    return true;
+                }
+            });
+        } catch (Exception ignored) {
+        }
     }
     private void loadCountries() {
         List<String> categories = new ArrayList<String>();
@@ -184,8 +228,9 @@ public class Home extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         myDialogs.hideProgessDialog();
+                        System.out.print(error.toString());
                         Log.d(error.toString(), "onErrorResponse: ");
-                        Toast.makeText(Home.this, "Internal Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Home.this,error.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
         );
